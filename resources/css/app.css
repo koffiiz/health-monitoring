@@ -1,0 +1,248 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Poppins';
+    font-style: normal;
+  }
+
+  :root{
+    --heading-color: #1D1617;
+    --text-desc: #7B6F72;
+    --white: #ffffff;
+    --placeholder: #ADA4A5;
+    --background: #F5F5F5;
+    --text-field: #F7F8F8;
+    --text-hover: #92A3FD;
+  }
+
+  section{
+    width: 100%;
+    padding: 2rem 0;
+  }
+
+  .container{
+    width: 100%;
+    height: auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .row{
+    width: 1200px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  input{
+    background: var(--text-field);
+    border: 1px solid var(--text-field);
+    border-radius: 14px;
+    width: 100%;
+    height: 48px;
+    outline: none;
+    padding: 0 20px 0 50px;
+    position: relative;  
+  }
+
+  h1{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    color: var(--heading-color);
+  }
+
+  h6{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  a, p{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    color: var(--text-desc);
+  }
+
+  button{
+    background: linear-gradient(274.42deg, #92A3FD 0%, #9DCEFF 124.45%);
+    border-radius: 99px;
+    color: var(--white);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    border: none;
+    width: 100%;
+    height: 50px;
+  }
+
+  button:hover{
+    background: var(--text-field);
+    color: var(--text-hover);
+    border: 1px solid var(--text-hover);
+  }
+
+  button.btn-pink{
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(274.42deg, #C58BF2 0%, #EEA4CE 124.45%);
+    border-radius: 14px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    color: var(--white);
+  }
+
+  .step_input_fields span{
+    color: #ADA4A5;
+  }
+
+  .step_one_row1{
+    padding: 0 1rem;
+    text-align: center;
+  }
+
+  .register-step-one h1{
+    margin-bottom: 30px;
+  }
+
+  .register-step-one h6{
+    margin-bottom: 5px;
+  }
+
+  .registration--textfield--one .step_input_fields:not(:last-child){
+    margin-bottom: 15px;
+  }
+
+  .registration--textfield--one .step_input_fields:last-child{
+    margin-bottom: 10px;
+  }
+
+  .registration--textfield--one {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+  .confirm{
+    display: flex;
+    text-align: start;
+    padding: 0 1rem;
+  }
+
+  .confirm input{
+    width: 26px;
+    height: 26px;
+    margin-right: 10px;
+  }
+
+  .confirm label{
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 15px;
+    color: #ADA4A5;
+  }
+
+
+  .step_one_row2 span{
+    color: #EEA4CE;
+  }
+
+.step_input_fields{
+  position: relative;
+}
+
+.step_input_fields .step-one-icon{
+  position: absolute;
+  top: 50%;
+  left: 9%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.step_input_fields .step-icon-eye {
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.step_one_row2 p{
+  margin-top: 30px
+}
+
+.step_one_row2 {
+  margin-top: 40px
+}
+
+#multistep_form fieldset:not(:first-of-type) {
+  display: none;
+}
+
+#multistep_form fieldset {
+  border: none;
+}
+
+.step_input_fields{
+  display: flex;
+}
+
+#step_two_weight,
+#step_two_height{
+  margin-right: 15px;
+}
+
+.register--textfield--two h1{
+  margin-top: 30px;
+  margin-bottom: 5px;
+}
+
+.register--textfield--two p{
+  margin-bottom: 30px;
+}
+
+.register--textfield--three h1{
+  margin-bottom: 5px;
+  margin-top: 50px;
+}
+
+.step_one_row2 {
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.register-step-one img{
+  width: 100%;
+  height: auto;
+}
+
+.login{
+  width: 100%;
+}
+
+.forgot__password__text {
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+
+
+
+
+
+
