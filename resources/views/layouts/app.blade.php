@@ -7,9 +7,11 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
+
+        
         <!-- Fonts -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
-
+        <link rel="stylesheet" href="https://www.dropbox.com/s/59cf440zw9s9e9c/app.css?dl=0"/>
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
