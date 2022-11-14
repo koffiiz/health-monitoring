@@ -28,8 +28,8 @@
                             </div>
                         </div>
                         <div class="step_one_row2">
-                            <button class="btn_submit next" value="Next" id="next1"><i class="fa-solid fa-right-to-bracket"></i>&nbsp;  Login</button>
-                            <p>Don’t have an account yet? <a href="http://"><span class="login">Comfirm</span></a></p>
+                            <button class="btn_submit next" value="Next" id="next1"><i class="fa-solid fa-right-to-bracket"></i>&nbsp;  Submit</button>
+                            <p>Don’t have an account yet? <a href="{{ route('register') }}"><span class="login">Register</span></a></p>
                         </div>
                         </div>
                     </fieldset>
