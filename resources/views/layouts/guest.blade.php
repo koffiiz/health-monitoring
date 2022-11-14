@@ -17,5 +17,26 @@
         <div class="font-sans text-gray-900 antialiased">
             {{ $slot }}
         </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+        <script>
+            jQuery(document).ready(function(){  
+                total_forms = jQuery("fieldset").length;  
+                jQuery(".next").click(function(){
+                    let previous = jQuery(this).closest("fieldset").attr('id');
+                    let next = jQuery('#'+this.id).closest('fieldset').next('fieldset').attr('id');
+                    jQuery('#'+next).show();
+                    jQuery('#'+previous).hide();
+                }); 
+                
+                jQuery(".previous").click(function(){
+                    let current = jQuery(this).closest("fieldset").attr('id');
+                    let previous = jQuery('#'+this.id).closest('fieldset').prev('fieldset').attr('id');
+                    jQuery('#'+previous).show();
+                    jQuery('#'+current).hide();
+                }); 
+            });
+        </script>
     </body>
 </html>
