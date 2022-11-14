@@ -43,7 +43,7 @@
                         <fieldset id="step-two">
                             <div class="registration--textfield--one register--textfield--two">
                                 <div class="step_one_row1">
-                                    <img src="/assets/steptwo.png" alt="" srcset="">
+                                    <img src="{{ URL::asset('/assets/images/steptwo.png') }}" alt="" srcset="">
                                     <h1>Let’s complete your profile</h1>
                                     <p>It will help us to know more about you!</p>
                                     <div class="step_input_fields step--two__gender">
@@ -61,7 +61,7 @@
                                     </div>
                                     <div class="step_input_fields step--one__height">
                                         <input type="number" id="step_two_height"   name="height" placeholder="Your Height" required>
-                                        <span class="step-one-icon"><i class="far fa-line-height"></i></span>
+                                        <span class="step-one-icon"><i class="fa-solid fa-person"></i></i></span>
                                         <button class="btn-pink">CM</button>
                                     </div>
                                 </div>
@@ -73,7 +73,7 @@
                             <fieldset id="step-three">
                                 <div class="registration--textfield--one register--textfield--three">
                                     <div class="step_one_row1">
-                                        <img src="/assets/stepthree.png" alt="" srcset="">
+                                        <img src="{{ URL::asset('/assets/images/stepthree.png') }}" alt="" srcset="">
                                         <h1>Let’s complete your profile</h1>
                                         <p>It will help us to know more about you!</p>
                                     </div>
