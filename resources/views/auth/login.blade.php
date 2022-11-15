@@ -20,12 +20,12 @@
                                     <h6>Hey there,</h6>
                                     <h1>Welcome Back</h1>
                                     <div class="step_input_fields step--one__firstname">
-                                        <input type="text" id="step_one_name" name="email" placeholder="" required>
+                                        <input type="text" id="step_one_name" name="email" placeholder="Enter Username" required>
                                         <span class="step-one-icon"><i class="fa-regular fa-user"></i></span>
                                     </div>
                                     <div class="step_input_fields step--one__password">
                                         <span class="step-icon-eye"><i class="fa-regular fa-eye"></i></span>
-                                        <input type="password" id="step_one_password"  name="password" placeholder="" required>
+                                        <input type="password" id="step_one_password"  name="password" placeholder="Enter Password" required>
                                         <span class="step-one-icon"><i class="fa-solid fa-lock"></i></span>
                                     </div>
                                     <div class="step_input_fields forgot__password__text">
