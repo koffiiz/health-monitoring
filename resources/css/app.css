@@ -250,6 +250,29 @@
   padding: 1rem;
 }
 
+.step--two__gender {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 60px;
+  background: var(--text-field);
+  border: 1px solid var(--text-field);
+  border-radius: 14px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  gap: 10px;
+}
 
+
+.step--two__gender [type="radio"] {
+  width: 15px;
+  height: 15px;
+}
+
+.step--two__gender label {
+  font-size: 14px;
+  color: #747474;
+}
 
 

@@ -8,11 +8,15 @@
                     <h1>Let’s complete your profile</h1>
                     <p>It will help us to know more about you!</p>
                     <div class="step_input_fields step--two__gender">
-                        <input type="text" id="step_two_gender" name="gender" placeholder="Choose Your Gender" required>
-                        <span class="step-one-icon"><i class="fa-solid fa-user-group"></i></span>
+                        <!-- <input type="text" id="step_two_gender" name="gender" placeholder="Choose Your Gender" required> -->
+                        <label for="male">Male</label>
+                        <input type="radio" id="male" name="gender" value="Male">
+                        <label for="female">Female</label>
+                        <input type="radio" id="female" name="gender" value="Female">
+                        <span class="step-one-icon"><i class="fa-solid fa-venus-mars"></i></span>
                     </div>
                     <div class="step_input_fields step--two__bday">
-                        <input type="date" id="step_two_bday"  name="birthday" placeholder="Date of Birth" required>
+                        <input type="text" id="step_two_bday"  name="birthday" placeholder="Date of Birth" onfocus="(this.type='date')" required>
                         <span class="step-one-icon"><i class="fa-regular fa-calendar-days"></i></span>
                     </div>
                     <div class="step_input_fields step--one__weight">
@@ -22,7 +26,7 @@
                     </div>
                     <div class="step_input_fields step--one__height">
                         <input type="number" id="step_two_height"   name="height" placeholder="Your Height" required>
-                        <span class="step-one-icon"><i class="far fa-line-height"></i></span>
+                        <span class="step-one-icon"><i class="fa-solid fa-person"></i></span>
                         <button class="btn-pink">CM</button>
                     </div>
                 </div>
