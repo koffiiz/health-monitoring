@@ -19,6 +19,10 @@ class RouteServiceProvider extends ServiceProvider
      */
     public const HOME = '/dashboard';
 
+    public const STEP = '/register-step';
+
+    public const STEP_WELCOME = '/register-welcome';
+
     /**
      * Define your route model bindings, pattern filters, and other route configuration.
      *

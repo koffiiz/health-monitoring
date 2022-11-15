@@ -49,6 +49,58 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect(RouteServiceProvider::STEP);
+    }
+
+
+    /**
+     * Display the registration step.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function step(Request $request) {
+        return view('auth.register-step');
+    }
+
+
+    /**
+     * Handle an incoming registration step request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     *
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    public function stepStore(Request $request) {
+
+        $request->validate([
+            'gender' => ['required', 'string', 'max:255'],
+            'birthday' => ['required', 'string', 'max:255'],
+            'weight' => ['required', 'string', 'max:255'],
+            'height' => ['required', 'string', 'max:255'],
+        ]);
+
+        $user = Auth::user();
+
+        $user->gender = $request->gender;
+        $user->birthday = $request->birthday;
+        $user->weight = $request->weight;
+        $user->height = $request->height;
+        $user->save();
+
+        return redirect(RouteServiceProvider::STEP_WELCOME);
+    }
+
+
+    /**
+     * Display the registration welcome.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function stepWelcome() {
+
+        $user = Auth::user();
+
+        return view('auth.register-welcome', ["user" => $user]);
     }
 }
