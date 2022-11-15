@@ -9,7 +9,7 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
-        <link rel="stylesheet" href="https://dl.dropbox.com/s/59cf440zw9s9e9c/app.css"/>
+        <link rel="stylesheet" href="https://dl.dropbox.com/s/hkywjovmjeszfwf/app.css"/>
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
