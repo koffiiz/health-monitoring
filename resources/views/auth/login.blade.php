@@ -24,8 +24,8 @@
                                         <span class="step-one-icon"><i class="fa-regular fa-user"></i></span>
                                     </div>
                                     <div class="step_input_fields step--one__password">
-                                        <span class="step-icon-eye"><i class="fa-regular fa-eye"></i></span>
-                                        <input type="password" id="step_one_password"  name="password" placeholder="Enter Password" required>
+                                        <span class="step-icon-eye"><i class="fa-regular fa-eye" class="togglePassword"></i></span>
+                                        <input type="password" id="step_one_password"  class="show-password" name="password" placeholder="Enter Password" required>
                                         <span class="step-one-icon"><i class="fa-solid fa-lock"></i></span>
                                     </div>
                                     <div class="step_input_fields forgot__password__text">

@@ -173,7 +173,7 @@
 .step_input_fields .step-one-icon{
   position: absolute;
   top: 50%;
-  left: 9%;
+  left: 35px;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }

@@ -38,15 +38,25 @@
                 }); 
             });
 
-//             jQuery(document).ready(function () {
-//                 jQuery("#eye").click(function () {
-//             if (jQuery("#password").attr("type") === "password") {
-//                 jQuery("#password").attr("type", "text");
-//             } else {
-//                 jQuery("#password").attr("type", "password");
-//             }
-//         });
-//   });
+        jQuery(document).ready(function () {
+        const togglePassword = document.querySelector(".show-password");
+        const passwordshow = document.querySelector(".togglePassword");
+
+        togglePassword.addEventListener("click", function () {
+            // toggle the type attribute
+            const typepo = passwordshow.getAttribute("type") === "password" ? "text" : "password";
+            passwordshow.setAttribute("type", typepo);
+            
+            // toggle the icon
+            this.classList.toggle("fa-eye");
+        });
+
+        // prevent form submit
+        const form = document.querySelector("form");
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+        });
+  });
 
         </script>
     </body>
