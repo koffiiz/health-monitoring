@@ -93,10 +93,14 @@
                 <div class="navi-botoom-container">
                     <div class="navi-container-item">
                         <div class="item-navi-icon">
-                            <i class="fa-solid fa-house"></i>
+                            <a href="">
+                                <i class="fa-solid fa-house"></i>
+                            </a>
                         </div>
                         <div class="item-navi-icon">
-                            <i class="fa-brands fa-facebook-messenger"></i>
+                            <a href="">
+                                <i class="fa-brands fa-facebook-messenger"></i>
+                            </a>
                         </div>
                         <div class="item-navi-icon item-navi-search">
                             <span class="search-nav-bottom">
@@ -104,22 +108,18 @@
                             </span>
                         </div>
                         <div class="item-navi-icon">
-                            <i class="fa-solid fa-camera"></i>
+                            <a href="">
+                                <i class="fa-solid fa-camera"></i>
+                            </a>
                         </div>
                         <div class="item-navi-icon">
-                            <i class="fa-solid fa-user"></i>
+                            <a href="{{ route('profile') }}">
+                                <i class="fa-solid fa-user"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <form method="POST" action="{{ route('logout') }}">
-            @csrf
-
-            <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900">
-                {{ __('Log Out') }}
-            </button>
-        </form>
     </div>
 </x-app-layout>
