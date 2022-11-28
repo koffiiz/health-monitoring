@@ -1,31 +1,22 @@
 <x-app-layout>
-    <div class="header__container container">
-        <div class="header__wrapper">
-            <a href="{{ url()->previous() }}"><i class="fa-solid fa-chevron-left"></i></a>
-            <h1>Profile</h1>
-            <a href="javascript:{}"><i class="fa-solid fa-ellipsis"></i></a>
-            <div class="dropdown-menu">
-                <form method="POST" action="{{ route('logout') }}" id="logoutForm">
-                    @csrf
-                    <a class="btn-logout" href="javascript:{}" onclick="document.getElementById('logoutForm').submit();">
-                        {{ __('Log Out') }}
-                    </a>
-                </form>
-            </div>
-        </div>
+    @php
+        $headerTitle = "Profile";
+        $headerBackUrl = "/dashboard";
+    @endphp
 
-    </div>
+    <x-app-header :headerTitle="$headerTitle" :headerBackUrl="$headerBackUrl"/>
+
     <div class="avatar__container container">
         <div class="avatar--info__wrapper">
             <img class="" src="{{ asset('/assets/images/avatar.png')  }}" alt="{user.handle}" />
             <div class="avatar--details__wrapper flex flex-col">
-                <h3>{{ strtok(auth()->user()->name, ' ');}}</h3>
+                <h3>{{ strtok(auth()->user()->first_name, ' ');}}</h3>
                 <p>Health</p>
             </div>
         </div>
 
         <div class="avatar--btn__wrapper">
-            <button>Edit</button>
+            <a class="button" href="{{ route('edit-profile') }}">Edit</a>
         </div>
     </div>
 
@@ -73,11 +64,3 @@
         </div>
     </div>
 </x-app-layout>
-
-<script>
-    jQuery(document).ready(function() {
-        $('.header__wrapper a:has(.fa-ellipsis)').click(function() {
-            $(this).next().toggleClass('show');
-        })
-    });
-</script>

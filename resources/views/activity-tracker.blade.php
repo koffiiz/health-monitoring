@@ -1,18 +1,15 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Activity Tracker') }}
-        </h2>
-    </x-slot>
+        @php
+         $headerTitle = "Activity Tracker";
+        @endphp
+
+        <x-app-header :headerTitle="$headerTitle" />
     <div class="py-12">
         <div class="tracker-container">
             <div class="tracker-row">
-                <div class="tracker-first-row tracker-first-section">
-                    <img src="assets/Back-Navs.png" > <h2>Activity Tracker</h2> <img src="assets/Detail-Navs.png" >
-                </div>
                 <div class="tracker-second-row tracker-second-section">
                     <div class="tracker-target-row1">
-                        <h3>Today Target</h3> <img src="assets/Buttonplus.png">
+                        <h3>Today Target</h3> <img src="/assets/images/Buttonplus.png">
                     </div>
                     <div class="tracker-target-row2">
                         <div class="target-row-col1">
@@ -24,17 +21,84 @@
                                 <p>Water Intake</p>
                             </div>
                         </div>
-                        <div class="target-row-col2">
-                            <div class="target-glass-shoes">
-                                    <img src="{{ asset('/assets/images/Group.png')  }}" alt="">
-                            </div>
-                            <div class="target-text">
-                                
-                            </div>
-                        </div>
                     </div>
                 </div>
     
             </div>
+
+            <div class="activity-chart--container">
+                <h4 class="activity-chart--header">Activity Progress</h4>
+                <div class="activity-chart">
+                    <div class="chart-col">
+                        <div class="barcontainer">
+                            <div class="bar"></div>
+                        </div>
+                        <p> Sun </p>
+                    </div>
+                    <div class="chart-col">
+                        <div class="barcontainer">
+                            <div class="bar"></div>
+                        </div>
+                        <p> Mon </p>
+                    </div>
+                    <div class="chart-col">
+                        <div class="barcontainer">
+                            <div class="bar"></div>
+                        </div>
+                        <p> Tue </p>
+                    </div>
+                    <div class="chart-col">
+                        <div class="barcontainer">
+                            <div class="bar"></div>
+                        </div>
+                        <p> Wed </p>
+                    </div>
+                    <div class="chart-col">
+                        <div class="barcontainer">
+                            <div class="bar"></div>
+                        </div>
+                        <p> Thur </p>
+                    </div>
+                    <div class="chart-col">
+                        <div class="barcontainer">
+                            <div class="bar"></div>
+                        </div>
+                        <p> Fri </p>
+                    </div>
+                    <div class="chart-col">
+                        <div class="barcontainer">
+                            <div class="bar"></div>
+                        </div>
+                        <p> Sat </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="latest-activity--container">
+                <h4 class="activity-chart--header">Latest Activity</h4>
+                <div class="latest-activity--card"> 
+                    <div class="latest-activity--thumbnail">
+                        <img class="" src="{{ asset('/assets/images/avatar.png')  }}" width="55" height="55"/>
+                    </div>
+                    <div class="latest-activity--content">
+                        <h5> Drinking 300ml Water </h5>
+                        <p> About 3 minutes ago </p>
+                    </div>
+                </div>
+
+                <div class="latest-activity--card"> 
+                    <div class="latest-activity--thumbnail">
+                        <img class="" src="{{ asset('/assets/images/snack.png')  }}"  width="55" height="55"/>
+                    </div>
+                    <div class="latest-activity--content">
+                        <h5> Eat Snack (Fitbar) </h5>
+                        <p> About 10 minutes ago</p>
+                    </div>
+                </div>
+
+
+            </div>
+
+
         </div>
 </x-app-layout>

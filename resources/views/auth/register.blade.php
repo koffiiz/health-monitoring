@@ -13,11 +13,11 @@
                             <h6>Hey there,</h6>
                             <h1>Create an Account</h1>
                                     <div class="step_input_fields step--one__firstname">
-                                        <input type="text" id="step_one_name" name="name" placeholder="Enter First Name.." required>
+                                        <input type="text" id="step_one_name" name="first_name" placeholder="Enter First Name.." required>
                                         <span class="step-one-icon"><i class="fa-regular fa-user"></i></span>
                                     </div>
                                     <div class="step_input_fields step--one__lastname">
-                                        <input type="text" id="step_one_lastname"  name="lastname" placeholder="Enter Last Name.." required>
+                                        <input type="text" id="step_one_lastname"  name="last_name" placeholder="Enter Last Name.." required>
                                         <span class="step-one-icon"><i class="fa-regular fa-user"></i></span>
                                     </div>
                                     <div class="step_input_fields step--one__email">

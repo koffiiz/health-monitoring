@@ -21,41 +21,19 @@
         <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 
         <script>
-            // jQuery(document).ready(function(){  
-            //     total_forms = jQuery("fieldset").length;  
-            //     jQuery(".next").click(function(){
-            //         let previous = jQuery(this).closest("fieldset").attr('id');
-            //         let next = jQuery('#'+this.id).closest('fieldset').next('fieldset').attr('id');
-            //         jQuery('#'+next).show();
-            //         jQuery('#'+previous).hide();
-            //     }); 
-                
-            //     jQuery(".previous").click(function(){
-            //         let current = jQuery(this).closest("fieldset").attr('id');
-            //         let previous = jQuery('#'+this.id).closest('fieldset').prev('fieldset').attr('id');
-            //         jQuery('#'+previous).show();
-            //         jQuery('#'+current).hide();
-            //     }); 
-            // });
 
         jQuery(document).ready(function () {
-        const togglePassword = document.querySelector(".show-password");
-        const passwordshow = document.querySelector(".togglePassword");
+            const togglePassword = document.querySelector(".show-password");
+            const passwordshow = document.querySelector(".togglePassword");
 
-        togglePassword.addEventListener("click", function () {
-            // toggle the type attribute
-            const typepo = passwordshow.getAttribute("type") === "password" ? "text" : "password";
-            passwordshow.setAttribute("type", typepo);
-            
-            // toggle the icon
-            this.classList.toggle("fa-eye");
+            togglePassword.addEventListener("click", function () {
+                // toggle the type attribute
+                const typepo = passwordshow.getAttribute("type") === "password" ? "text" : "password";
+                passwordshow.setAttribute("type", typepo);
+                
+                // toggle the icon
+                this.classList.toggle("fa-eye");
         });
-
-        // prevent form submit
-        // const form = document.querySelector("form");
-        // form.addEventListener('submit', function (e) {
-        //     e.preventDefault();
-        // });
   });
 
         </script>
