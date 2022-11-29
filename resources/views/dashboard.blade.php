@@ -98,8 +98,8 @@
                             </a>
                         </div>
                         <div class="item-navi-icon">
-                            <a href="">
-                                <i class="fa-brands fa-facebook-messenger"></i>
+                            <a href="{{ route('dashboard') }}">
+                                <i class="fa-solid fa-bell"></i>
                             </a>
                         </div>
                         <div class="item-navi-icon item-navi-search">
