@@ -10,21 +10,21 @@
                 <div class="row">
                     <div class="content dashboard">
                         <h6>Welcome Back</h6>
-                        <h1>Kofiiz</h1>
-                        <div class="pin"><button><i class="fa-solid fa-bell"></i></button></div>
+                        <h1>{{ $user->first_name }}</h1>
+                        <div class="pin"><a href="{{ route('notification') }}"><i class="fa-solid fa-bell"></i></a></div>
                         <div class="radial--section--contaier">
                             <div class="radial--section--row">
                                 <div class="dot-overlay"></div>
                                 <div class="radial--col--one">
                                     <h2>BMI (Body Mass Index)</h2>
-                                    <p>You have a normal weight</p>
-                                    <button class="btn-pink">View More</button>
+                                    <p>{{ $userData['BMI']['message'] }}</p>
+                                    <a href='{{route('bmi-index')}}' class="btn-pink button">View More</a>
                                 </div>
                                 <div class="radial--col--two">
                                     <div class="radial--full--circle"></div>
                                     <div class="radial--half--circle"></div>
                                     <div class="radial--circle--container">
-                                        <p>20,1</p>
+                                        <p>{{ $userData['BMI']['value'] }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -33,7 +33,7 @@
                             <div class="target--check--row">
                                 <div class="target-check-content">
                                     <h2>Today Target</h2>
-                                    <button>Check</button>
+                                    <a class="button" href={{ route('activity-tracker') }}>Check</a>
                                 </div>
                             </div>
                             <div class="target-check-cotnent">
