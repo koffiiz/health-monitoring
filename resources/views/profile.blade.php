@@ -6,6 +6,12 @@
 
     <x-app-header :headerTitle="$headerTitle" :headerBackUrl="$headerBackUrl"/>
 
+    @if(session()->has('message'))
+        <div class="alert alert-success">
+            {{ session()->get('message') }}
+        </div>
+    @endif
+
     <div class="avatar__container container">
         <div class="avatar--info__wrapper">
             <img class="" src="{{ asset('/assets/images/avatar.png')  }}" alt="{user.handle}" />

@@ -1220,10 +1220,11 @@ input:checked+.slider:before {
 .alert.alert-success {
   background-color: #5cb85c;
   color: #fff;
-  padding: 1rem;
+  padding: .5rem;
   text-align: center;
   border-radius: 10px;
   font-size: 14px;
+  margin-bottom: 30px;
 }
 
 h4.activity-chart--header {

@@ -43,7 +43,7 @@ class ActionsController extends Controller
         $user->height = $request->height;
         $user->save();
         
-        return redirect()->back()->with('message', 'Profile Sucessfully Updated');
+        return redirect()->guest('profile')->with('message', 'Profile Sucessfully Updated');
     }
 
     public function activityTracker() {
