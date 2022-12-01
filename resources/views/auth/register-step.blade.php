@@ -37,17 +37,5 @@
             </div>
         </form>
        
-{{-- 
-    <fieldset id="step-three">
-        <div class="registration--textfield--one register--textfield--three">
-            <div class="step_one_row1">
-                <img src="/assets/stepthree.png" alt="" srcset="">
-                <h1>Let’s complete your profile</h1>
-                <p>It will help us to know more about you!</p>
-            </div>
-            <div class="step_one_row2">
-                <button type="submit" class="btn_submit next" value="" id="">Register</i></button>
-            </div>
-            </div>
-    </fieldset> --}}
+
 </x-app-layout>

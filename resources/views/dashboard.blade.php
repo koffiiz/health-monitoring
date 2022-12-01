@@ -10,21 +10,21 @@
                 <div class="row">
                     <div class="content dashboard">
                         <h6>Welcome Back</h6>
-                        <h1>Kofiiz</h1>
-                        <div class="pin"><button><i class="fa-solid fa-bell"></i></button></div>
+                        <h1>{{ $user->first_name }}</h1>
+                        <div class="pin"><a href="{{ route('notification') }}"><i class="fa-solid fa-bell"></i></a></div>
                         <div class="radial--section--contaier">
                             <div class="radial--section--row">
                                 <div class="dot-overlay"></div>
                                 <div class="radial--col--one">
                                     <h2>BMI (Body Mass Index)</h2>
-                                    <p>You have a normal weight</p>
-                                    <button class="btn-pink">View More</button>
+                                    <p>{{ $userData['BMI']['message'] }}</p>
+                                    <a href='{{route('bmi-index')}}' class="btn-pink button">View More</a>
                                 </div>
                                 <div class="radial--col--two">
                                     <div class="radial--full--circle"></div>
                                     <div class="radial--half--circle"></div>
                                     <div class="radial--circle--container">
-                                        <p>20,1</p>
+                                        <h4>{{ $userData['BMI']['value'] }}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -33,7 +33,7 @@
                             <div class="target--check--row">
                                 <div class="target-check-content">
                                     <h2>Today Target</h2>
-                                    <button>Check</button>
+                                    <a class="button" href={{ route('activity-tracker') }}>Check</a>
                                 </div>
                             </div>
                             <div class="target-check-cotnent">
@@ -44,27 +44,28 @@
                                     <div class="target--check--row">
                                         <div class="target--col-one">
                                             <div class="barcontainer">
-                                                <div class="bar">
+                                                @php
+                                                    $waterIntakePercent = ( $totalWaterIntake / 4000 ) * 100;
+                                                @endphp
+                                                <div class="bar" style="height: {{ $waterIntakePercent }}%">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="target__col__two__row__three">
                                             <div class="target__col__two__row__two">
                                             </div>
+
+                                            <h2>Target</h2>
+                                            <h1> 4000 ML </h1>
+                                            
                                             <h2>Water Intake</h2>
-                                            <h1>4 Liters</h1>
+                                            <h1> {{ $totalWaterIntake }} ML </h1>
                                             <p>Real time updates</p>
                                             <ul>
-                                                <li>6am - 8am</li>
-                                                <p>600ml</p>
-                                                <li>9am - 11am</li>
-                                                <p>500ml</p>
-                                                <li>11am - 2pm</li>
-                                                <p>1000ml</p>
-                                                <li>2pm - 4pm</li>
-                                                <p>700ml</p>
-                                                <li>4pm - now</li>
-                                                <p>900ml</p>
+                                                @foreach ($user->water_intake as $waterIntake)
+                                                    <li> {{ $waterIntake->created_at->format('h i A') }} </li>
+                                                    <p>{{ $waterIntake->water_intake }} ml</p>
+                                                @endforeach
                                             </ul>
                                         </div>
                                     </div>
@@ -88,38 +89,6 @@
             </div>
         </section>
 
-        <div class="container">
-            <div class="row">
-                <div class="navi-botoom-container">
-                    <div class="navi-container-item">
-                        <div class="item-navi-icon">
-                            <i class="fa-solid fa-house"></i>
-                        </div>
-                        <div class="item-navi-icon">
-                            <i class="fa-brands fa-facebook-messenger"></i>
-                        </div>
-                        <div class="item-navi-icon item-navi-search">
-                            <span class="search-nav-bottom">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </span>
-                        </div>
-                        <div class="item-navi-icon">
-                            <i class="fa-solid fa-camera"></i>
-                        </div>
-                        <div class="item-navi-icon">
-                            <i class="fa-solid fa-user"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <form method="POST" action="{{ route('logout') }}">
-            @csrf
-
-            <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900">
-                {{ __('Log Out') }}
-            </button>
-        </form>
+        <x-navigation />
     </div>
 </x-app-layout>
