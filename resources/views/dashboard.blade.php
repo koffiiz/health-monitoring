@@ -24,7 +24,7 @@
                                     <div class="radial--full--circle"></div>
                                     <div class="radial--half--circle"></div>
                                     <div class="radial--circle--container">
-                                        <p>{{ $userData['BMI']['value'] }}</p>
+                                        <h4>{{ $userData['BMI']['value'] }}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -93,13 +93,13 @@
                 <div class="navi-botoom-container">
                     <div class="navi-container-item">
                         <div class="item-navi-icon">
-                            <a href="">
+                            <a href="{{ route('dashboard') }}">
                                 <i class="fa-solid fa-house"></i>
                             </a>
                         </div>
                         <div class="item-navi-icon">
-                            <a href="{{ route('dashboard') }}">
-                                <i class="fa-solid fa-bell"></i>
+                            <a href="">
+                                <i class="fa-brands fa-facebook-messenger"></i>
                             </a>
                         </div>
                         <div class="item-navi-icon item-navi-search">

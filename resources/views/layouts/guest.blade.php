@@ -15,21 +15,26 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<script>
-    jQuery(document).ready(function() {
-        const togglePassword = document.querySelector(".show-password");
-        const passwordshow = document.querySelector(".togglePassword");
+<body>
+    <div class="font-sans text-gray-900 antialiased">
+        {{ $slot }}
+    </div>
 
-        togglePassword.addEventListener("click", function() {
-            // toggle the type attribute
-            const typepo = passwordshow.getAttribute("type") === "password" ? "text" : "password";
-            passwordshow.setAttribute("type", typepo);
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 
-            // toggle the icon
-            this.classList.toggle("fa-eye");
-        });
-    });
-</script>
+    <script>
+        $(function() {
+            $(".step-icon-eye").on('click', function() {
+                $(this).find('i').toggleClass("fa-eye fa-eye-slash");
+                var input = $('[name="password"] , [name="password_confirmation"]');
+                if (input.attr("type") === "password") {
+                    input.attr("type", "text");
+                } else {
+                    input.attr("type", "password");
+                }
+            });
+        })
+    </script>
 </body>
 
 </html>
