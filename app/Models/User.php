@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\WaterIntake;
+use App\Models\Activity;
 
 class User extends Authenticatable
 {
@@ -47,4 +49,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the water for the of the user.
+     */
+    public function water_intake()
+    {
+        return $this->hasMany(WaterIntake::class);
+    }
+    
+    /**
+     * Get the Activiy of the user.
+     */
+    public function activity()
+    {
+        return $this->hasMany(Activity::class);
+    }
 }

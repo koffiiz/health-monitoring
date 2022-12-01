@@ -72,5 +72,6 @@
             </div>
         </form>
        
+        <x-navigation />
 
 </x-app-layout>

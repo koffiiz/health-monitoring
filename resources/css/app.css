@@ -450,7 +450,7 @@ h2 {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 80%;
+  height: 0%;
   border-top: 0px solid #FFF;
   box-sizing: border-box;
   animation: grow 1.5s ease-out forwards;
@@ -902,7 +902,7 @@ input:checked+.slider:before {
   display: flex;
 }
 .target-row-col1{
-  width: 50%;
+  width: 95%;
   display: flex;
   background-color: var(--white);
   padding: 10px;
@@ -1290,3 +1290,6 @@ h4.activity-chart--header {
   padding:0rem 1rem;
 }
 
+.notification--content p {
+  text-align: left;
+}

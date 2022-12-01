@@ -44,27 +44,28 @@
                                     <div class="target--check--row">
                                         <div class="target--col-one">
                                             <div class="barcontainer">
-                                                <div class="bar">
+                                                @php
+                                                    $waterIntakePercent = ( $totalWaterIntake / 4000 ) * 100;
+                                                @endphp
+                                                <div class="bar" style="height: {{ $waterIntakePercent }}%">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="target__col__two__row__three">
                                             <div class="target__col__two__row__two">
                                             </div>
+
+                                            <h2>Target</h2>
+                                            <h1> 4000 ML </h1>
+                                            
                                             <h2>Water Intake</h2>
-                                            <h1>4 Liters</h1>
+                                            <h1> {{ $totalWaterIntake }} ML </h1>
                                             <p>Real time updates</p>
                                             <ul>
-                                                <li>6am - 8am</li>
-                                                <p>600ml</p>
-                                                <li>9am - 11am</li>
-                                                <p>500ml</p>
-                                                <li>11am - 2pm</li>
-                                                <p>1000ml</p>
-                                                <li>2pm - 4pm</li>
-                                                <p>700ml</p>
-                                                <li>4pm - now</li>
-                                                <p>900ml</p>
+                                                @foreach ($user->water_intake as $waterIntake)
+                                                    <li> {{ $waterIntake->created_at->format('h i A') }} </li>
+                                                    <p>{{ $waterIntake->water_intake }} ml</p>
+                                                @endforeach
                                             </ul>
                                         </div>
                                     </div>
@@ -88,38 +89,6 @@
             </div>
         </section>
 
-        <div class="container">
-            <div class="row">
-                <div class="navi-botoom-container">
-                    <div class="navi-container-item">
-                        <div class="item-navi-icon">
-                            <a href="{{ route('dashboard') }}">
-                                <i class="fa-solid fa-house"></i>
-                            </a>
-                        </div>
-                        <div class="item-navi-icon">
-                            <a href="">
-                                <i class="fa-brands fa-facebook-messenger"></i>
-                            </a>
-                        </div>
-                        <div class="item-navi-icon item-navi-search">
-                            <span class="search-nav-bottom">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </span>
-                        </div>
-                        <div class="item-navi-icon">
-                            <a href="">
-                                <i class="fa-solid fa-camera"></i>
-                            </a>
-                        </div>
-                        <div class="item-navi-icon">
-                            <a href="{{ route('profile') }}">
-                                <i class="fa-solid fa-user"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <x-navigation />
     </div>
 </x-app-layout>

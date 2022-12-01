@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\WaterIntake;
+use App\Models\Activity;
 
 class ActionsController extends Controller
 {
@@ -47,11 +49,38 @@ class ActionsController extends Controller
     }
 
     public function activityTracker() {
-        return view('activity-tracker');
+
+        $user = Auth::user();
+
+        return view('activity-tracker', ['user' => $user]);
     }
 
     public function notification() {
-        return view('notification');
+
+        $user = Auth::user();
+
+        return view('notification', ['user' => $user]);
+    }
+
+    public function waterIntake() {
+        return view('water-intake');
+    }   
+
+    public function waterIntakeUpdate(Request $request) {
+        $user = Auth::user();
+
+        $waterIntakeCreate = WaterIntake::create([
+            'user_id' => $user->id,
+            'water_intake' => $request->water_intake
+        ]);
+
+        $activity = Activity::create([
+            'user_id' => $user->id,
+            'activity_type' => 'water',
+            'activity_title' => "Drinking $request->water_intake ml of Water"
+        ]);
+
+        return redirect()->back()->with('message', "You Successfully Drink $request->water_intake ml" );
     }
 
 }

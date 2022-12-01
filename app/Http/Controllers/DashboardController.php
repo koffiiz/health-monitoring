@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\WaterIntake;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 
 class DashboardController extends Controller
@@ -22,9 +24,19 @@ class DashboardController extends Controller
             ],
         ];
 
+
+        $totalWaterIntake = 0;
+
+        $waterIntakes = WaterIntake::whereDate('created_at', Carbon::today())->get();
+
+        foreach ($waterIntakes as $key => $waterIntake) {
+           $totalWaterIntake += $waterIntake->water_intake;
+        }
+
         return view('dashboard', [
             'user' => $user,
-            'userData' => $userData
+            'userData' => $userData,
+            'totalWaterIntake' => $totalWaterIntake
         ]);
     }
 

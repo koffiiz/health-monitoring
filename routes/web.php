@@ -33,6 +33,14 @@ Route::get('/activity-tracker', [ ActionsController::class, 'activityTracker'])-
 // Notification
 Route::get('/notification', [ ActionsController::class, 'notification'])->middleware(['auth', 'verified'])->name('notification');
 
+// Water Intake
+Route::get('/water-intake', [ ActionsController::class, 'waterIntake'])->middleware(['auth', 'verified'])->name('water-intake');
+Route::post('/water-intake', [ ActionsController::class, 'waterIntakeUpdate'])->middleware(['auth', 'verified'])->name('water-intake-update');
+
+// Water Intake
+Route::get('/sleep-tracker', [ ActionsController::class, 'sleepTracker'])->middleware(['auth', 'verified'])->name('sleep-tracker');
+Route::post('/sleep-tracker', [ ActionsController::class, 'sleepTrackerUpdate'])->middleware(['auth', 'verified'])->name('sleep-tracker-update');
+
 Route::get('/profile', function () {
     return view('profile');
 })->middleware(['auth', 'verified'])->name('profile');
