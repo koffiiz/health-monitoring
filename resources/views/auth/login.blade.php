@@ -13,6 +13,7 @@
                     <div class="row">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
+                            
                             <div class="register-step-one">
                                 <div id="step-one">
                                 <div class="registration--textfield--one login-page">
@@ -28,6 +29,9 @@
                                             <input type="password" id="step_one_password"  class="show-password" name="password" placeholder="Enter Password" required>
                                             <span class="step-one-icon"><i class="fa-solid fa-lock"></i></span>
                                         </div>
+                                        <x-input-error :messages="$errors->get('email')" class="mt-2" />
+
+
                                         <div class="step_input_fields forgot__password__text">
                                             <a href="{{ route('password.request') }}"> <p>Forgot your password</p> </a>
                                         </div>

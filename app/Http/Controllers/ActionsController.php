@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
+use App\Models\Activity;
+use App\Models\WaterIntake;
+use App\Models\SleepTracker;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\WaterIntake;
-use App\Models\Activity;
 
 class ActionsController extends Controller
 {
@@ -51,15 +53,38 @@ class ActionsController extends Controller
     public function activityTracker() {
 
         $user = Auth::user();
+        
+        $userActivity = Activity::where('user_id', $user->id)->latest()->take(5)->get();
+        $date = Carbon::now()->subDays(7);
 
-        return view('activity-tracker', ['user' => $user]);
+        // Get Last 7 Days Water Activity
+        $lastWeekWaterActivity = WaterIntake::where('created_at', '>=', $date)->take(7)->get()->groupBy(function($item) {
+            return $item->created_at->format('Y-m-d');
+        });
+
+        // Get Last 7 Days Sleep Activity
+        $lastWeekSleepActivity = SleepTracker::where('created_at', '>=', $date)->take(7)->get()->groupBy(function($item) {
+            return $item->created_at->format('Y-m-d');
+        });
+
+        // dd($lastWeekWaterActivity);
+
+        return view('activity-tracker', 
+            [
+                'user' => $user, 
+                'user_activity' => $userActivity, 
+                'lastWeekWaterActivity' => $lastWeekWaterActivity,
+                'lastWeekSleepActivity' => $lastWeekSleepActivity
+            ]);
     }
 
     public function notification() {
 
         $user = Auth::user();
+        $userActivity = Activity::where('user_id', $user->id)->latest()->get();;
 
-        return view('notification', ['user' => $user]);
+
+        return view('notification', ['user' => $user, 'userActivity' => $userActivity]);
     }
 
     public function waterIntake() {
@@ -81,6 +106,49 @@ class ActionsController extends Controller
         ]);
 
         return redirect()->back()->with('message', "You Successfully Drink $request->water_intake ml" );
+    }
+
+    public function sleepTracker() {
+        $user = Auth::user();
+
+        $latestSleepTracker = $user->sleep->where('sleep_end', null)->last();
+        
+        return view('sleep-tracker', ['latestSleepTracker' => $latestSleepTracker] );
+    }
+
+    public function sleepTrackerUpdate(Request $request) {
+        $user = Auth::user();
+        $latestSleepTracker = $user->sleep->last();
+        $status = '';
+
+        if($request->sleep_status == 'sleep_end') {
+            $latestSleepTracker->sleep_end = Carbon::now();
+            $latestSleepTracker->save();
+            $status = "Ended";
+
+            $activity = Activity::create([
+                'user_id' => $user->id,
+                'activity_type' => 'sleep',
+                'activity_title' => "You Wakeup"
+            ]);
+
+        }
+        else {
+            $sleepTracker = SleepTracker::create([
+                'user_id' => $user->id,
+                'sleep_start' => Carbon::now()
+            ]);
+
+            $activity = Activity::create([
+                'user_id' => $user->id,
+                'activity_type' => 'sleep',
+                'activity_title' => "You Started To Sleep"
+            ]);
+
+            $status = "Started";
+        }
+
+        return redirect()->back()->with('message', "You $status Your Sleep" );
     }
 
 }

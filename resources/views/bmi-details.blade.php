@@ -32,4 +32,6 @@
 
         </div>
     </div>
+
+    <x-navigation />
 </x-app-layout>

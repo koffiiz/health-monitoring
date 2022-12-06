@@ -46,6 +46,9 @@
                                             <div class="barcontainer">
                                                 @php
                                                     $waterIntakePercent = ( $totalWaterIntake / 4000 ) * 100;
+                                                    if($waterIntakePercent > 100) {
+                                                        $waterIntakePercent = 100;
+                                                    }
                                                 @endphp
                                                 <div class="bar" style="height: {{ $waterIntakePercent }}%">
                                                 </div>
@@ -62,7 +65,7 @@
                                             <h1> {{ $totalWaterIntake }} ML </h1>
                                             <p>Real time updates</p>
                                             <ul>
-                                                @foreach ($user->water_intake as $waterIntake)
+                                                @foreach ($waterIntakes as $waterIntake)
                                                     <li> {{ $waterIntake->created_at->format('h i A') }} </li>
                                                     <p>{{ $waterIntake->water_intake }} ml</p>
                                                 @endforeach
@@ -72,14 +75,14 @@
                                 </div>
                                 <div class="target--col-three">
                                     <div class="target__col__three__row__one">
-                                        <h2>Sleep</h2>
-                                        <h1>8h 20m</h1>
+                                        <h2>Total Sleep</h2>
+                                        <h1>{{ $totalSleep }}</h1>
                                         <img src="{{ asset('/assets/images/Sleep-Graph.png')  }}">
                                     </div>
                                     <div class="target__col__three__row__two">
-                                        <h2>Calories</h2>
-                                        <h1>760 kCal</h1>
-                                        <img src="{{ asset('/assets/images/calories-pie.png')  }}">
+                                        <h2>Needed Calorie Intake</h2>
+                                        <h1>{{ $calorieIntake }}</h1>
+                                        {{-- <img src="{{ asset('/assets/images/calories-pie.png')  }}"> --}}
                                     </div>
                                 </div>
                             </div>
