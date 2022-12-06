@@ -58,12 +58,12 @@ class ActionsController extends Controller
         $date = Carbon::now()->subDays(7);
 
         // Get Last 7 Days Water Activity
-        $lastWeekWaterActivity = WaterIntake::where('created_at', '>=', $date)->take(7)->get()->groupBy(function($item) {
+        $lastWeekWaterActivity = WaterIntake::where('user_id', $user->id)->where('created_at', '>=', $date)->take(7)->get()->groupBy(function($item) {
             return $item->created_at->format('Y-m-d');
         });
 
         // Get Last 7 Days Sleep Activity
-        $lastWeekSleepActivity = SleepTracker::where('created_at', '>=', $date)->take(7)->get()->groupBy(function($item) {
+        $lastWeekSleepActivity = SleepTracker::where('user_id', $user->id)->where('created_at', '>=', $date)->take(7)->get()->groupBy(function($item) {
             return $item->created_at->format('Y-m-d');
         });
 

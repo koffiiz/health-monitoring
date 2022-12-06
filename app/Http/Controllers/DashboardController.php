@@ -28,14 +28,14 @@ class DashboardController extends Controller
 
         $totalWaterIntake = 0;
 
-        $waterIntakes = WaterIntake::whereDate('created_at', Carbon::today())->get();
+        $waterIntakes = WaterIntake::where('user_id', $user->id)->whereDate('created_at', Carbon::today())->get();
         
         foreach ($waterIntakes as $key => $waterIntake) {
             $totalWaterIntake += $waterIntake->water_intake;
         }
         
         $totalSleep = null;
-        $sleepTrackers = SleepTracker::whereDate('created_at', Carbon::today())->get();
+        $sleepTrackers = SleepTracker::where('user_id', $user->id)->whereDate('created_at', Carbon::today())->get();
 
         foreach ($sleepTrackers as $key => $sleepTracker) {
             $start = new Carbon($sleepTracker->sleep_start);
