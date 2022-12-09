@@ -1,6 +1,6 @@
 <div class="header__container container">
     <div class="header__wrapper">
-        <a href="javascript:history.back()"><i class="fa-solid fa-chevron-left"></i></a>
+        <a href="{{ url('/') }}"><i class="fa-solid fa-chevron-left"></i></a>
         <h1>{{ $headerTitle }}</h1>
         <a href="javascript:{}"><i class="fa-solid fa-ellipsis"></i></a>
         <div class="dropdown-menu">

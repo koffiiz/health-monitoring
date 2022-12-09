@@ -619,6 +619,7 @@ h2 {
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  z-index: 99999999;
 }
 
 .header__wrapper>a {
