@@ -1213,6 +1213,9 @@ input:checked+.slider:before {
   gap: 1rem;
 }
 
+#update-profile {
+  padding-bottom: 120px;
+}
 
 #update-profile h1 {
   margin-bottom: 2rem;
