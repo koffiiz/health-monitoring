@@ -52,7 +52,9 @@
                         @foreach ( $waterActivityGroup as $waterActivity)
                             @php
                                 $dayTotalWaterIntake += $waterActivity->water_intake;
-                            @endphp                  
+                            @endphp  
+                            
+                           
                         @endforeach
                         @php
                             $waterIntakePercent = ( $dayTotalWaterIntake / 4000 ) * 100;
@@ -63,7 +65,7 @@
                         @endphp
                         <div class="chart-col">
                             <div class="barcontainer">
-                                <div class="bar"style="height: {{ $waterIntakePercent }}%"></div>
+                                <div class="bar" style="height: {{ $waterIntakePercent }}%"></div>
                             </div>
                             <p> {{ date_format(date_create($waterActivityGroup[0]->created_at), "D")  }} </p>
                         </div>
@@ -100,9 +102,9 @@
                         @endphp
                         <div class="chart-col">
                             <div class="barcontainer">
-                                <div class="bar"style="height: {{ $dayTotalpercent }}%"></div>
+                                <div class="bar" style="height: {{ $dayTotalpercent }}%"></div>
                             </div>
-                            <p> {{ date_format(date_create($waterActivityGroup[0]->created_at), "D")  }} </p>
+                            <p> {{ date_format(date_create($sleepActivityGroup[0]->created_at), "D")  }} </p>
                         </div>
                     @endforeach
                 </div>
